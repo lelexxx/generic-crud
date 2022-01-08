@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GenericCrud.Infra.Dtos\GenericCrud.Infra.Dtos.csproj" />
+    <ProjectReference Include="..\GenericCrud.Infra.Interfaces\GenericCrud.Infra.Interfaces.csproj" />
+    <ProjectReference Include="..\GenericCrud.Services.Interfaces\GenericCrud.Services.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
