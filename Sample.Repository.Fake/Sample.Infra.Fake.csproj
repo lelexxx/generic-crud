@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GenericCrud.Infra.Fake\GenericCrud.Infra.Fake.csproj" />
+    <ProjectReference Include="..\Sample.Infra.Dtos\Sample.Infra.Dtos.csproj" />
+  </ItemGroup>
+
+</Project>

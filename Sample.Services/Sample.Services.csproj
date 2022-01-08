@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GenericCrud.Services\GenericCrud.Services.csproj" />
+    <ProjectReference Include="..\Sample.Infra.Dtos\Sample.Infra.Dtos.csproj" />
+    <ProjectReference Include="..\Sample.Services.Dtos\Sample.Services.Dtos.csproj" />
+  </ItemGroup>
+
+</Project>
