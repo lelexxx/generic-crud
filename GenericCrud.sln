@@ -39,7 +39,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Infra.Dtos", "Sample
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericCrud.Api.Controller.Tests", "GenericCrud.Api.Controller.Tests\GenericCrud.Api.Controller.Tests.csproj", "{E83C5A7A-8E03-4E5E-A634-51C306462BE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Api.Tests", "Sample.Api.Tests\Sample.Api.Tests.csproj", "{1755EEA5-A509-42DD-80AF-E9E21BF62492}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Api.Tests", "Sample.Api.Tests\Sample.Api.Tests.csproj", "{1755EEA5-A509-42DD-80AF-E9E21BF62492}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{46D18F97-E56F-4FDC-A58F-91E6E6781CF8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
