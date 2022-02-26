@@ -12,12 +12,12 @@ namespace GenericCrud.Infra.Sql
             Context = context;
         }
 
-        public virtual T? Add(T entity)
+        public T? Add(T entity)
         {
             return Context.Set<T>().Add(entity) as T;
         }
 
-        public virtual bool Delete(int entityId)
+        public bool Delete(int entityId)
         {
             T? entity = GetById(entityId);
             if (entity == null) return false;
@@ -26,17 +26,17 @@ namespace GenericCrud.Infra.Sql
             return Context.SaveChanges() == 1;
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
             return Context.Set<T>().ToList();
         }
 
-        public virtual T? GetById(int id)
+        public T? GetById(int id)
         {
             return Context.Set<T>().FirstOrDefault(entity => entity.Id == id);
         }
 
-        public virtual T? Update(T entity)
+        public T? Update(T entity)
         {
             Context.Set<T>().Update(entity);
             Context.SaveChanges();
