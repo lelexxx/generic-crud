@@ -9,7 +9,7 @@ public class GenericFakeRepository<T> : IGenericRepository<T> where T : class, I
 
     public T? Add(T entity)
     {
-        int lastId = Context.Max(e => e.Id);
+        int lastId = Context.Any() ? Context.Max(e => e.Id) : 0;
         entity.Id = lastId + 1;
 
         Context.Add(entity);
@@ -33,7 +33,7 @@ public class GenericFakeRepository<T> : IGenericRepository<T> where T : class, I
 
     public T? GetById(int id)
     {
-        return Context.FirstOrDefault(entity => entity.Id == id);
+        return Context.SingleOrDefault(entity => entity.Id == id);
     }
 
     public T? Update(T entity)
@@ -45,6 +45,6 @@ public class GenericFakeRepository<T> : IGenericRepository<T> where T : class, I
         Context.Remove(oldEntity);
         Context.Add(entity);
 
-        return Context.FirstOrDefault(e => e.Id == entity.Id);
+        return Context.SingleOrDefault(e => e.Id == entity.Id);
     }
 }

@@ -20,7 +20,9 @@ namespace GenericCrud.Infra.Sql
         public bool Delete(int entityId)
         {
             T? entity = GetById(entityId);
-            if (entity == null) return false;
+            if (entity == null) 
+                return false;
+
             Context.Set<T>().Remove(entity);
 
             return Context.SaveChanges() == 1;
@@ -33,7 +35,7 @@ namespace GenericCrud.Infra.Sql
 
         public T? GetById(int id)
         {
-            return Context.Set<T>().FirstOrDefault(entity => entity.Id == id);
+            return Context.Set<T>().SingleOrDefault(entity => entity.Id == id);
         }
 
         public T? Update(T entity)
@@ -41,7 +43,7 @@ namespace GenericCrud.Infra.Sql
             Context.Set<T>().Update(entity);
             Context.SaveChanges();
 
-            return Context.Set<T>().FirstOrDefault(e => e.Id == entity.Id);
+            return Context.Set<T>().SingleOrDefault(e => e.Id == entity.Id);
         }
     }
 }
