@@ -8,11 +8,10 @@ namespace Sample.Api.Tests
 {
     public class PeopleControllerTest : BaseControllerTest<PeopleController, PeopleApiDto>
     {
-        public PeopleControllerTest()
+        public PeopleControllerTest() : base(new PeopleController(new PeopleService(new PeopleFakeRepository())), //TODO use DI
+                                             new PeopleApiDto(0, "New"),
+                                             new PeopleApiDto(1, "Updated"))
         {
-            Controller = new PeopleController(new PeopleService(new PeopleFakeRepository())); //TODO use DI
-            NewApiDo = new PeopleApiDto(0, "New");
-            UpdateApiDo = new PeopleApiDto(1, "Updated");
         }
     }
 }
