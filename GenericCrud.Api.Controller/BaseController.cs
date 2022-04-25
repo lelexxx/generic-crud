@@ -55,7 +55,7 @@ public abstract class BaseController<TO> : Microsoft.AspNetCore.Mvc.Controller, 
     public ActionResult<TO> Update(uint id, TO apiDto)
     {
         if (apiDto.Id != id)
-            return Unauthorized();
+            return BadRequest();
 
         TO? updatedApiDto = Services.Update(apiDto);
         if (updatedApiDto == null)
