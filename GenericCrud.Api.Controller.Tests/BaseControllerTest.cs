@@ -14,6 +14,13 @@ public abstract class BaseControllerTest<T, TO> where T : IBaseController<TO>
     protected TO NewApiDo { get; set; }
     protected TO UpdateApiDo { get; set; }
 
+    protected BaseControllerTest(T controller, TO newApiDto, TO updateApiDto)
+    {
+        Controller = controller;
+        NewApiDo = newApiDto;
+        UpdateApiDo = updateApiDto;
+    }
+
     [Fact]
     public void GetAllTest()
     {

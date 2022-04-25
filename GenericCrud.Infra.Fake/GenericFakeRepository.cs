@@ -7,9 +7,9 @@ public class GenericFakeRepository<T> : IGenericRepository<T> where T : class, I
 {
     protected List<T> Context { get; set; } = new();
 
-    public virtual T? Add(T entity)
+    public T? Add(T entity)
     {
-        int lastId = Context.Max(e => e.Id);
+        int lastId = Context.Any() ? Context.Max(e => e.Id) : 0;
         entity.Id = lastId + 1;
 
         Context.Add(entity);
@@ -17,7 +17,7 @@ public class GenericFakeRepository<T> : IGenericRepository<T> where T : class, I
         return entity;
     }
 
-    public virtual bool Delete(int entityId)
+    public bool Delete(int entityId)
     {
         T? entity = GetById(entityId);
         if (entity == null) 
@@ -26,17 +26,17 @@ public class GenericFakeRepository<T> : IGenericRepository<T> where T : class, I
         return Context.Remove(entity);
     }
 
-    public virtual IEnumerable<T> GetAll()
+    public IEnumerable<T> GetAll()
     {
         return Context.ToList();
     }
 
-    public virtual T? GetById(int id)
+    public T? GetById(int id)
     {
-        return Context.FirstOrDefault(entity => entity.Id == id);
+        return Context.SingleOrDefault(entity => entity.Id == id);
     }
 
-    public virtual T? Update(T entity)
+    public T? Update(T entity)
     {
         T? oldEntity = GetById(entity.Id);
         if (oldEntity == null)
@@ -45,6 +45,6 @@ public class GenericFakeRepository<T> : IGenericRepository<T> where T : class, I
         Context.Remove(oldEntity);
         Context.Add(entity);
 
-        return Context.FirstOrDefault(e => e.Id == entity.Id);
+        return Context.SingleOrDefault(e => e.Id == entity.Id);
     }
 }
